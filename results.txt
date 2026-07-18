@@ -1,0 +1,71 @@
+This file contains the outputs received from running the code:
+1) naive matrix multiplication without tiling 
+
+1000 X 1000
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Time: 176.325 ms
+Total End-to-End Time: 259.593 ms
+GPU performance: 11.3427 GFLOPS
+CPU Time: 2496.23 ms
+Verified. Computation correct
+
+2048 X 2048
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Time: 1324.71 ms
+Total End-to-End Time: 1412.86 ms
+GPU performance: 12.9688 GFLOPS
+CPU Time: 42418.3 ms
+CPU Time to GPU time: 32.0209 times!
+Verified. Computation correct
+
+
+2) Tiled Mat multiplication - (nXn)
+
+512 X 512
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Computation time: 7.52387 ms
+Total Elapsed Time: 94.6585 ms
+GPU Performance: 35.6778 GFLOPS
+CPU Computation Time: 435.3 ms
+CPU Time to GPU Time: 57.8558 times!
+Verified. Computation correct
+
+1024 X 1024
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Computation time: 54.464 ms
+Total Elapsed Time: 122.669 ms
+GPU Performance: 39.4294 GFLOPS
+CPU Computation Time: 3510.05 ms
+CPU Time to GPU Time: 64.4472 times!
+Verified. Computation correct
+
+1000 X 1000
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Computation time: 53.2655 ms
+Total Elapsed Time: 126.678 ms
+GPU Performance: 37.5478 GFLOPS
+CPU Computation Time: 1861.49 ms
+CPU Time to GPU Time: 34.9474 times!
+Verified. Computation correct
+
+2048 X 2048
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Computation time: 383.473 ms
+Total Elapsed Time: 478.356 ms
+GPU Performance: 44.8008 GFLOPS
+CPU Computation Time: 35201 ms
+CPU Time to GPU Time: 91.7952 times!
+Verified. Computation correct
+
