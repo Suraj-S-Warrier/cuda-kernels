@@ -152,5 +152,58 @@ CPU Computation Time: 31.9172 ms
 CPU Time to GPU Time: 27.3759 times!
 Verified. Computation correct
 
+5) Data Prefetched Tiled Matrix Multiplication (N X N)
+512 X 512
+Enter matrix dimension: 
+512
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Computation time: 1.60867 ms
+Total Elapsed Time: 79.4543 ms
+GPU Performance: 166.868 GFLOPS
+CPU Computation Time: 440.495 ms
+CPU Time to GPU Time: 273.825 times!
+Verified. Computation correct
+
+1024 X 1024
+Enter matrix dimension: 
+1024
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Computation time: 7.98006 ms
+Total Elapsed Time: 82.7887 ms
+GPU Performance: 269.106 GFLOPS
+CPU Computation Time: 4171.16 ms
+CPU Time to GPU Time: 522.697 times!
+Verified. Computation correct
+
+1000 X 1000
+Enter matrix dimension: 
+1000
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Computation time: 7.99382 ms
+Total Elapsed Time: 95.9118 ms
+GPU Performance: 250.193 GFLOPS
+CPU Computation Time: 3158.52 ms
+CPU Time to GPU Time: 395.121 times!
+Verified. Computation correct
+
+2048 X 2048
+Enter matrix dimension: 
+2048
+Device name: NVIDIA GeForce RTX 3050 Laptop GPU
+Max threads per block: 1024
+Shared memory per block: 48 KB
+GPU Computation time: 62.329 ms
+Total Elapsed Time: 182.664 ms
+GPU Performance: 275.632 GFLOPS
+CPU Computation Time: 34691.8 ms
+CPU Time to GPU Time: 556.593 times!
+Verified. Computation correct
+
 
 
