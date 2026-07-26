@@ -69,3 +69,88 @@ CPU Computation Time: 35201 ms
 CPU Time to GPU Time: 91.7952 times!
 Verified. Computation correct
 
+
+3)Sum Reduction - non coalesced
+Size of Input Array: 10^6
+Enter size of array: 
+1000000
+GPU Computation time: 0.343296 ms
+Total Elapsed Time: 2.6599 ms
+GPU Performance: 2.91294 GFLOPS
+CPU Computation Time: 3.0444 ms
+CPU Time to GPU Time: 8.86815 times!
+Verified. Computation correct
+
+Size of Input Array: 4* 10^6
+Enter size of array: 
+4000000
+GPU Computation time: 1.13741 ms
+Total Elapsed Time: 9.0725 ms
+GPU Performance: 3.51677 GFLOPS
+CPU Computation Time: 12.6542 ms
+CPU Time to GPU Time: 11.1255 times!
+Verified. Computation correct
+
+Size of Input Array: 8* 10^6
+Enter size of array: 
+8000000
+GPU Computation time: 2.19027 ms
+Total Elapsed Time: 17.5339 ms
+GPU Performance: 3.65251 GFLOPS
+CPU Computation Time: 24.319 ms
+CPU Time to GPU Time: 11.1032 times!
+Verified. Computation correct
+
+Size of Input Array: 10^7
+Enter size of array: 
+10000000
+GPU Computation time: 2.73779 ms
+Total Elapsed Time: 21.3502 ms
+GPU Performance: 3.65258 GFLOPS
+CPU Computation Time: 32.016 ms
+CPU Time to GPU Time: 11.6941 times!
+Verified. Computation correct
+
+4) Sum reduction - coalesced
+Size of Input Array - 10^6
+Enter size of array: 
+1000000
+GPU Computation time: 0.168544 ms
+Total Elapsed Time: 2.5996 ms
+GPU Performance: 5.93316 GFLOPS
+CPU Computation Time: 3.0103 ms
+CPU Time to GPU Time: 17.8606 times!
+Verified. Computation correct
+
+Size of Input Array - 4* 10^6
+Enter size of array: 
+4000000
+GPU Computation time: 0.473824 ms
+Total Elapsed Time: 8.6654 ms
+GPU Performance: 8.44195 GFLOPS
+CPU Computation Time: 12.6487 ms
+CPU Time to GPU Time: 26.6949 times!
+Verified. Computation correct
+
+Size of Input Array - 8* 10^6
+Enter size of array: 
+8000000
+GPU Computation time: 0.863872 ms
+Total Elapsed Time: 15.7196 ms
+GPU Performance: 9.26063 GFLOPS
+CPU Computation Time: 24.2721 ms
+CPU Time to GPU Time: 28.0969 times!
+Verified. Computation correct
+
+Size of Input Array - 10^7
+Enter size of array: 
+10000000
+GPU Computation time: 1.16589 ms
+Total Elapsed Time: 19.6991 ms
+GPU Performance: 8.57715 GFLOPS
+CPU Computation Time: 31.9172 ms
+CPU Time to GPU Time: 27.3759 times!
+Verified. Computation correct
+
+
+
