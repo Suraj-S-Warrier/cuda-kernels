@@ -115,41 +115,41 @@ Verified. Computation correct
 Size of Input Array - 10^6
 Enter size of array: 
 1000000
-GPU Computation time: 0.168544 ms
-Total Elapsed Time: 2.5996 ms
-GPU Performance: 5.93316 GFLOPS
-CPU Computation Time: 3.0103 ms
-CPU Time to GPU Time: 17.8606 times!
+GPU Computation time: 0.11504 ms
+Total Elapsed Time: 2.3227 ms
+GPU Performance: 8.69262 GFLOPS
+CPU Computation Time: 3.0612 ms
+CPU Time to GPU Time: 26.6099 times!
 Verified. Computation correct
 
 Size of Input Array - 4* 10^6
 Enter size of array: 
 4000000
-GPU Computation time: 0.473824 ms
-Total Elapsed Time: 8.6654 ms
-GPU Performance: 8.44195 GFLOPS
-CPU Computation Time: 12.6487 ms
-CPU Time to GPU Time: 26.6949 times!
+GPU Computation time: 0.309792 ms
+Total Elapsed Time: 8.267 ms
+GPU Performance: 12.9119 GFLOPS
+CPU Computation Time: 12.3251 ms
+CPU Time to GPU Time: 39.7851 times!
 Verified. Computation correct
 
 Size of Input Array - 8* 10^6
 Enter size of array: 
 8000000
-GPU Computation time: 0.863872 ms
-Total Elapsed Time: 15.7196 ms
-GPU Performance: 9.26063 GFLOPS
-CPU Computation Time: 24.2721 ms
-CPU Time to GPU Time: 28.0969 times!
+GPU Computation time: 0.544736 ms
+Total Elapsed Time: 15.6237 ms
+GPU Performance: 14.686 GFLOPS
+CPU Computation Time: 25.821 ms
+CPU Time to GPU Time: 47.4009 times!
 Verified. Computation correct
 
 Size of Input Array - 10^7
 Enter size of array: 
 10000000
-GPU Computation time: 1.16589 ms
-Total Elapsed Time: 19.6991 ms
-GPU Performance: 8.57715 GFLOPS
-CPU Computation Time: 31.9172 ms
-CPU Time to GPU Time: 27.3759 times!
+GPU Computation time: 0.729376 ms
+Total Elapsed Time: 18.878 ms
+GPU Performance: 13.7103 GFLOPS
+CPU Computation Time: 31.9473 ms
+CPU Time to GPU Time: 43.8009 times!
 Verified. Computation correct
 
 5) Data Prefetched Tiled Matrix Multiplication (N X N)

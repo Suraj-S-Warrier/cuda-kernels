@@ -6,13 +6,17 @@ using namespace std;
 
 __global__ void reductionCoalescedKernel(double *a, double *ans, int size){
 
-    int ind = blockIdx.x*blockDim.x + threadIdx.x;
+    int ind = 2*blockIdx.x*blockDim.x + threadIdx.x;
     extern __shared__ double sharedMemory[];
 
     if(ind>=size){
         sharedMemory[threadIdx.x]=0;
     }
+    else if((2*blockIdx.x+1)*blockDim.x +threadIdx.x <size){
+        sharedMemory[threadIdx.x] = a[ind] + a[ind+blockDim.x];
+    }
     else{
+
         sharedMemory[threadIdx.x] = a[ind];
     }
 
@@ -61,13 +65,12 @@ void benchmark(int n,bool output){
     size_t sharedMemorySize = sizeof(double)*blockLength;
     cudaEventRecord(start);
     while(n_gpu>1){
-        int numberOfBlocks = ceil(n_gpu/(blockLength*1.0));
-        unsigned int gridLength = ceil(n_gpu/(blockLength*1.0));
+        unsigned int gridLength = ceil(n_gpu/(blockLength*2.0));
         dim3 gridDim = {gridLength,1};
         reductionCoalescedKernel<<<gridDim,blockDim,sharedMemorySize>>> (src_buffer,dest_buffer,n_gpu);
         // cudaMemcpy(a_gpu,ans_gpu,numberOfBlocks*sizeof(float),cudaMemcpyDeviceToDevice);
         swap(src_buffer,dest_buffer);
-        n_gpu=numberOfBlocks;
+        n_gpu=gridLength;
     }
     cudaEventRecord(end);
     cudaEventSynchronize(end);
