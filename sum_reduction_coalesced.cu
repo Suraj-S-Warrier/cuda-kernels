@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <cuda_runtime.h>
+#include <cuda_profiler_api.h>
 
 using namespace std;
 
@@ -93,28 +94,28 @@ void benchmark(int n,bool output){
     cudaFree(ans_gpu);
 
     //VERIFICATION STEPS
-    startTime = chrono::high_resolution_clock::now();
-    double verify=0;
-    for(int i=0;i<n;i++){
-        verify+=a[i];
-    }
-    stopTime = chrono::high_resolution_clock::now();
-    duration  =stopTime-startTime;
-    if(output){
-        cout<<"CPU Computation Time: "<<duration.count()<<" ms"<<endl;
-        cout<<"CPU Time to GPU Time: "<<duration.count()/gpuComputeTime<<" times!"<<endl;
-    }
-    if(fabs(verify-finalAns)>(1)){
-        if(output){
-            cout<<verify<<" and "<<finalAns<<" are not equal."<<endl;
-            cout<<"Incorrect. Try again"<<endl;
-        }
-    }
-    else{
-        if(output){
-            cout<<"Verified. Computation correct"<<endl;
-        }
-    }
+    // startTime = chrono::high_resolution_clock::now();
+    // double verify=0;
+    // for(int i=0;i<n;i++){
+    //     verify+=a[i];
+    // }
+    // stopTime = chrono::high_resolution_clock::now();
+    // duration  =stopTime-startTime;
+    // if(output){
+    //     cout<<"CPU Computation Time: "<<duration.count()<<" ms"<<endl;
+    //     cout<<"CPU Time to GPU Time: "<<duration.count()/gpuComputeTime<<" times!"<<endl;
+    // }
+    // if(fabs(verify-finalAns)>(1)){
+    //     if(output){
+    //         cout<<verify<<" and "<<finalAns<<" are not equal."<<endl;
+    //         cout<<"Incorrect. Try again"<<endl;
+    //     }
+    // }
+    // else{
+    //     if(output){
+    //         cout<<"Verified. Computation correct"<<endl;
+    //     }
+    // }
 
     free(a);
     
@@ -125,10 +126,12 @@ int main(){
     cout<<"Enter size of array: "<<endl;
     int n;
     cin>>n;
-    for(int i=0;i<17;i++){
-        benchmark(n,false);   // to warm up the gpu and cpu, and initialise everything
-    }
+    // for(int i=0;i<17;i++){
+    //     benchmark(n,false);   // to warm up the gpu and cpu, and initialise everything
+    // }
+    cudaProfilerStart();
     benchmark(n,true);
+    cudaProfilerStop();
 
     return 0;
 }

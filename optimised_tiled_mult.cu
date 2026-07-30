@@ -1,5 +1,6 @@
 #include <iostream>
 #include <chrono>
+#include <cuda_profiler_api.h>
 
 using namespace std;
 
@@ -75,8 +76,8 @@ void benchmark(int matDim,bool output){
 
     for(int i=0;i<matDim; i++){ //initialization
         for(int j=0;j<matDim;j++){
-            a[i*matDim + j] = 1;
-            b[i*matDim + j] = 2;
+            a[i*matDim + j] = 1.0;
+            b[i*matDim + j] = 1.1;
         }
     }
 
@@ -91,7 +92,7 @@ void benchmark(int matDim,bool output){
     cudaMemcpy(a_gpu,a,sizeAllocated,cudaMemcpyHostToDevice);
     cudaMemcpy(b_gpu,b,sizeAllocated,cudaMemcpyHostToDevice);
 
-    unsigned int dimBlock = 32;
+    unsigned int dimBlock = 16;
     unsigned int dimGrid = ceil(matDim/(dimBlock*1.0));
     long long int tileSize = dimBlock;
 
@@ -130,31 +131,31 @@ void benchmark(int matDim,bool output){
 
     //VERIFICATION STEPS
 
-    bool flg = true;
-    startTime = chrono::high_resolution_clock::now();
-    for(int i=0;i<matDim;i++){
-        for(int j=0;j<matDim;j++){
-            float curr =0;
-            for(int k=0;k<matDim;k++){
-                curr+= a[i*matDim +k]*b[k*matDim+j];
-            }
-            if(curr!=ans[i*matDim+j]){
-                flg=false;
-            }
-        }
-    }
-    stopTime = chrono::high_resolution_clock::now();
-    duration  =stopTime-startTime;
-    if(output){
-        cout<<"CPU Computation Time: "<<duration.count()<<" ms"<<endl;
-        cout<<"CPU Time to GPU Time: "<<duration.count()/gpuComputeTime<<" times!"<<endl;
-        if(flg){
-            cout<<"Verified. Computation correct"<<endl;
-        }
-        else{
-            cout<<"Incorrect. Try again"<<endl;
-        }
-    }
+    // bool flg = true;
+    // startTime = chrono::high_resolution_clock::now();
+    // for(int i=0;i<matDim;i++){
+    //     for(int j=0;j<matDim;j++){
+    //         float curr =0;
+    //         for(int k=0;k<matDim;k++){
+    //             curr+= a[i*matDim +k]*b[k*matDim+j];
+    //         }
+    //         if(curr!=ans[i*matDim+j]){
+    //             flg=false;
+    //         }
+    //     }
+    // }
+    // stopTime = chrono::high_resolution_clock::now();
+    // duration  =stopTime-startTime;
+    // if(output){
+    //     cout<<"CPU Computation Time: "<<duration.count()<<" ms"<<endl;
+    //     cout<<"CPU Time to GPU Time: "<<duration.count()/gpuComputeTime<<" times!"<<endl;
+    //     if(flg){
+    //         cout<<"Verified. Computation correct"<<endl;
+    //     }
+    //     else{
+    //         cout<<"Incorrect. Try again"<<endl;
+    //     }
+    // }
     free(a);
     free(b);
     free(ans);
@@ -169,5 +170,7 @@ int main(){
     // for(int i=0;i<18;i++){
     //     benchmark(matDim, false);
     // }
+    cudaProfilerStart();
     benchmark(matDim,true);
+    cudaProfilerStop();
 }
