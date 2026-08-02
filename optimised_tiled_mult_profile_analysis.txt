@@ -1,0 +1,15 @@
+On profiling for the first time, got Compute throughput and memory throughput 95%+. But it was showing that my compute workload
+is being underutilised by a lot. 
+On further analysis, we can see that, compute and memory throughputs are being measured as the maximum values (or bottlenecks lets say)
+received in its entire pipeline. In Memory, this includes L1, L2, DRAM, shared memory etc. In Compute,it includes a lot of stuff including
+LSU, ALU etc.
+Here, in compute, its the LSU unit which is the most utilised while the ALU units(the actual compute units) are being underutilised.
+The LSU units are responsible for the load and store instructions, from everywhere including shared and VRAM memories.
+The roofline plot also gives an interesting story. The tiled matrix multiplication which we implemented is giving less computational intensity
+than the ridge, which means our algorithm has become memory bound. Also it is pretty below the roof, so its not really maximising its resources either.
+The suggestions given by Nsight Compute was to decrease MIO Throttle. So, checked Source section and found that, 67% of the stalls (attributed stalls)
+is coming from the  "curr+= compute[x]*compute[y]" line. And it is of the type MIO throttle. WHich means that the hardware queue is
+getting full while loading so much shared memory at a time and thats what is throttling it. This could be helped by using #pragma unroll
+before the inner loop, so that the compiler knows to unroll the loop and make it more efficient by loading data together, instead of 
+one after the other which is what is making the process slow. 
+Did it and it decreased the contribution from 67% to 8%.
