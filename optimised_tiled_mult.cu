@@ -106,12 +106,6 @@ void benchmark(int matDim,bool output){
     float *b = new float [matDim*matDim];
     float *ans_cublas = new float [matDim*matDim];
 
-    for(int i=0;i<matDim; i++){ //initialization
-        for(int j=0;j<matDim;j++){
-            a[i*matDim + j] = 1.0;
-            b[i*matDim + j] = 1.1;
-        }
-    }
 
     float *a_gpu,*b_gpu, *ans_gpu,*ans_cublas_gpu;
     int sizeAllocated = matDim*matDim*sizeof(float);
@@ -122,7 +116,6 @@ void benchmark(int matDim,bool output){
     cudaMalloc((void**)&ans_gpu,sizeAllocated);
     cudaMalloc((void**)&ans_cublas_gpu, sizeAllocated);
     
-
     cudaMemcpy(a_gpu,a,sizeAllocated,cudaMemcpyHostToDevice);
     cudaMemcpy(b_gpu,b,sizeAllocated,cudaMemcpyHostToDevice);
 

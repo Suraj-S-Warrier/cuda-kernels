@@ -206,4 +206,33 @@ CPU Time to GPU Time: 556.593 times!
 Verified. Computation correct
 
 
+6) Convolution V1 - naive
+Enter height and width
+2048 2048
+Enter filter radius
+5
+GPU Computation time: 2.76787 ms
+Total Elapsed Time: 11.6325 ms
+CPU Computation Time: 1615.02 ms
+CPU Time to GPU Time: 583.489 times!
+
+Enter height and width
+1024 1024
+Enter filter radius
+5
+GPU Computation time: 0.802816 ms
+Total Elapsed Time: 3.348 ms
+CPU Computation Time: 383.259 ms
+CPU Time to GPU Time: 477.394 times!
+
+Enter height and width
+512 512
+Enter filter radius
+5
+GPU Computation time: 0.191488 ms
+Total Elapsed Time: 1.1799 ms
+CPU Computation Time: 99.2507 ms
+CPU Time to GPU Time: 518.313 times!
+
+
 
